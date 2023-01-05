@@ -1,0 +1,66 @@
+﻿@page
+@model CapenexisLearners.Pages.Learners.IndexModel
+
+@{
+    ViewData["Title"] = "CAPENEXIS LEARNERS";
+}
+
+<h1>LEARNERS</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].SurName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].NationalIdentityNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].Duration)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Learner) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NationalIdentityNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
